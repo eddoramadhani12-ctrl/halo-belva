@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hallo Sayanggkuu</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: pink;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 12vw; /* hampir selayar */
+      font-weight: bold;
+      color: black;
+      text-align: center;
+      line-height: 1.2;
+      position: relative;
+      z-index: 2;
+      animation: naikTurun 3s infinite ease-in-out;
+    }
+
+    @keyframes naikTurun {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+
+    .love {
+      position: absolute;
+      font-size: 30px; /* ukuran lebih besar */
+      color: red;
+      animation: jatuh linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes jatuh {
+      0% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) scale(0.7);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>hallo sayanggkuu<br>maappp yoo aku tinggall lamaa tadii</h1>
+
+  <script>
+    function buatLove() {
+      const love = document.createElement("div");
+      love.classList.add("love");
+      love.innerHTML = "❤️"; // love merah
+      love.style.left = Math.random() * 100 + "vw";
+      love.style.fontSize = (25 + Math.random() * 25) + "px"; // agak besar
+      love.style.animationDuration = (3 + Math.random() * 4) + "s";
+      document.body.appendChild(love);
+
+      setTimeout(() => {
+        love.remove();
+      }, 7000);
+    }
+
+    setInterval(buatLove, 300);
+  </script>
+</body>
+</html>
